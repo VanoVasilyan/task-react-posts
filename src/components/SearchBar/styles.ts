@@ -8,6 +8,11 @@ export const StyledSearchBarContainer = styled.div`
     padding: 0.313rem 0.625rem;
     border: 0.063rem solid grey;
     border-radius: 0.938rem;
+
+    @media(max-width: 630px){
+        width: 100%;
+        margin-top: 1rem;
+    }
 `;
 
 export const StyledSearchBarInput = styled.input<{ $show: boolean }>`
@@ -17,6 +22,11 @@ export const StyledSearchBarInput = styled.input<{ $show: boolean }>`
     outline: none;
     background-color: #FFFFFF;
     transition: width 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+    @media (max-width: 630px) {
+        width: 100%;
+        opacity: 1;
+    }
 `;
 
 export const StyledIcon = styled.img`
