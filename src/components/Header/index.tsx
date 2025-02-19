@@ -21,6 +21,18 @@ const Header: FC = () => {
                 </SC.StyledPicture>
                 <SearchBar />
             </SC.StyledHeaderInnerBlock>
+            <SC.StyledHeaderInnerBlockMobile>
+                <SC.StyledMobileHeader>
+                    <SC.StyledHamburgerButon onClick={showSideBar}>
+                        <SC.StyledIcon src={HamburgerIcon} alt='HamburgerIcon' />
+                    </SC.StyledHamburgerButon>
+                    <SC.StyledPicture>
+                        <SC.StyledPictureSource media='(max-width: 375px)' srcSet={LogoMobile} />
+                        <SC.StyledLogo src={Logo} alt='Logo' />
+                    </SC.StyledPicture>
+                </SC.StyledMobileHeader>
+                <SearchBar />
+            </SC.StyledHeaderInnerBlockMobile>
         </SC.StyledMainHeader>
     )
 };

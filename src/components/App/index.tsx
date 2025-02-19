@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useGetAllPostsQuery } from '../../store/services/posts';
 import { usePostsAction } from '../../store/slices/posts';
 import { useGlobalContext } from '../../context/context';
@@ -16,18 +16,20 @@ const App: FC = () => {
     const { isPopupOpen, selectedPost } = usePopupSelector();
     const { isShowSideBar, searchValue, showSideBar } = useGlobalContext();
 
-    useEffect(() => {
-        if (searchValue.trim()) {
-            const lowerSearch = searchValue.toLowerCase().trim();
-            const filteredPosts = data?.filter(item =>
-                item.title.toLowerCase().includes(lowerSearch) ||
-                item.text.toLowerCase().includes(lowerSearch)
-            );
-            setPosts(filteredPosts);
-        } else {
-            setPosts(data);
-        }
+    const filteredPosts = useMemo(() => {
+        if (!data) return [];
+        if (!searchValue.trim()) return data;
+
+        const lowerSearch = searchValue.toLowerCase().trim();
+        return data.filter(item =>
+            item.title.toLowerCase().includes(lowerSearch) ||
+            item.text.toLowerCase().includes(lowerSearch)
+        );
     }, [searchValue, data]);
+
+    useEffect(() => {
+        setPosts(filteredPosts);
+    }, [filteredPosts, setPosts]);
 
     return (
         <SC.StyledAppContainer>

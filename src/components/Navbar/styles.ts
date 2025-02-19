@@ -14,6 +14,10 @@ export const StyledNavbarContainer = styled.nav`
         opacity: 0;
         pointer-events: none;
     }
+
+    @media(max-width: 600px){
+        padding: 0 1.25rem;
+    }
 `;
 
 export const StyledNavbarMenu = styled.ul`
@@ -23,7 +27,7 @@ export const StyledNavbarMenu = styled.ul`
     margin: 0 auto;
     max-width: 34.625rem;
 
-    @media(max-width:425px){
+    @media(max-width: 768px){
         display: none;
     }
 `;
@@ -90,18 +94,6 @@ export const StyledMenuItemLink = styled.a`
     font-weight: 500;
     color: #000000;
     text-decoration: none;
-
-    @media (max-width: 1024px){
-        width: 7rem;
-    }
-
-    @media (max-width: 900px){
-        width: 5rem;
-    }
-
-    @media (max-width:710px) 
-        width: 4rem;
-    }
 }
 `
 

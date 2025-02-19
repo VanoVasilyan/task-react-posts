@@ -13,7 +13,7 @@ export const StyledCircleContainer = styled.div`
 
   width: 3.75rem;
   height: 3.75rem;
-  border: solid 2px #ffcc00;
+  border: solid 0.125rem #ffcc00;
   border-radius: 50%;
   border-right-color: transparent;
   border-bottom-color: transparent;
